@@ -2,7 +2,7 @@ pushd build
 mkdir uboot-a64
 cd uboot-a64
 git clone https://github.com/apritzel/u-boot -b spl-fit-rfc --depth=1
-git clone https://github.com/apritzel/arm-trusted-firmware -b allwinner --depth=1
+git clone https://github.com/Icenowy/arm-trusted-firmware -b allwinner --depth=1
 pushd arm-trusted-firmware
 sed -i 's/1689/ffff/g' ./plat/sun50iw1p1/sunxi_clocks.c
 make PLAT=sun50iw1p1 CROSS_COMPILE=/opt/abcross/arm64/bin/aarch64-aosc-linux-gnu- DEBUG=1

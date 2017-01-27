@@ -2,7 +2,7 @@ pushd build
 mkdir uboot-h5
 cd uboot-h5
 git clone https://github.com/ehoutsma/u-boot -b h5 --depth=1
-git clone https://github.com/apritzel/arm-trusted-firmware -b allwinner --depth=1
+git clone https://github.com/Icenowy/arm-trusted-firmware -b allwinner --depth=1
 pushd arm-trusted-firmware
 make PLAT=sun50iw1p1 CROSS_COMPILE=/opt/abcross/arm64/bin/aarch64-aosc-linux-gnu- DEBUG=1
 cp build/sun50iw1p1/debug/bl31.bin ../u-boot/
