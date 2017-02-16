@@ -1,5 +1,5 @@
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-next-20170125 --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-next-20170216 --depth=1
 cd linux
 git clone https://github.com/hadess/rtl8723bs --depth=1
 cp ../../linux_config .config
