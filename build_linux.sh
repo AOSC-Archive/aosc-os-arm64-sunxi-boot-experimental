@@ -1,7 +1,7 @@
 pushd build
 git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc1 --depth=1
 cd linux
-git clone https://github.com/Icenowy/rtl8723bs --depth=1
+git clone https://github.com/Icenowy/rtl8723bs -b 4.11-fix --depth=1
 cp ../../linux_config .config
 make ARCH=arm64 CROSS_COMPILE=/opt/abcross/arm64/bin/aarch64-aosc-linux-gnu- -j$(nproc)
 mkdir -p ../../out/linux-kernel-sunxi64
