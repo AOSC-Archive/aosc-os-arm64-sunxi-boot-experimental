@@ -15,7 +15,7 @@ cp build/sun50iw1p1/release/bl31.bin ../u-boot/
 popd
 pushd u-boot
 make sun50i_h5_spl32_defconfig
-make spl/sunxi-spl.bin
+make CROSS_COMPILE=/opt/abcross/armel/bin/armv7a-aosc-linux-gnueabihf- spl/sunxi-spl.bin
 cp spl/sunxi-spl.bin spl32.bin
 make clean
 make orangepi_pc2_defconfig
