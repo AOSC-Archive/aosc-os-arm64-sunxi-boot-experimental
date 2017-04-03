@@ -5,7 +5,7 @@ else
 fi
 
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc4 --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc5 --depth=1
 cd linux
 git clone https://github.com/Icenowy/rtl8723bs -b 4.11-fix --depth=1
 cp ../../linux_config .config
