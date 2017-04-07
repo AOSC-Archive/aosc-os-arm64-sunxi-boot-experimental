@@ -23,7 +23,11 @@ cd ..
 depmod -b "$tmpdir" $(basename $(readlink -f $EXTRA_KMOD_DIR/../..))
 cp -r "$tmpdir"/lib/modules ../../out/linux-kernel-sunxi64/
 rm -rf "$tmpdir"
-for i in sun50i-h5-orangepi-pc2 sun50i-a64-pine64 sun50i-a64-pine64-plus
+for i in \
+	sun50i-h5-orangepi-pc2 \
+	sun50i-h5-orangepi-prime \
+	sun50i-a64-pine64 \
+	sun50i-a64-pine64-plus
 do
 	mkdir -p ../../out/dtb-$i
 	cp arch/arm64/boot/dts/allwinner/$i.dtb ../../out/dtb-$i/dtb.dtb
