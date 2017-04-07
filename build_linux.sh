@@ -9,7 +9,7 @@ git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc5 --depth=1
 cd linux
 git clone https://github.com/Icenowy/rtl8723bs -b 4.11-fix --depth=1
 cp ../../linux_config .config
-make ARCH=arm64 -j$(nproc)
+make ARCH=arm64 DTC_FLAGS=-@ -j$(nproc)
 mkdir -p ../../out/linux-kernel-sunxi64
 cp arch/arm64/boot/Image ../../out/linux-kernel-sunxi64/
 tmpdir=$(mktemp -d)
