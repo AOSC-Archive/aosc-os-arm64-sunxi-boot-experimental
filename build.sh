@@ -8,8 +8,7 @@ if [ "$(uname -m)" = "aarch64" ]; then
 fi
 
 if [ "$BUILD_UBOOT" != "0" ]; then
-	sh build_uboot_a64.sh
-	sh build_uboot_h5.sh
+	sh build_uboot.sh
 fi
 if [ "$BUILD_LINUX" != "0" ]; then
 	sh build_linux.sh
