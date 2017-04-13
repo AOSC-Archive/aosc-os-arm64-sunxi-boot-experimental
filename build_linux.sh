@@ -5,7 +5,7 @@ else
 fi
 
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc5 --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc6 --depth=1
 cd linux
 git clone https://github.com/Icenowy/rtl8723bs -b 4.11-fix --depth=1
 cp ../../linux_config .config
@@ -26,6 +26,7 @@ rm -rf "$tmpdir"
 for i in \
 	sun50i-h5-orangepi-pc2 \
 	sun50i-h5-orangepi-prime \
+	sun50i-h5-nanopi-neo2 \
 	sun50i-a64-pine64 \
 	sun50i-a64-pine64-plus
 do
