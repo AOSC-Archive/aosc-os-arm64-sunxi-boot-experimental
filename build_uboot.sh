@@ -27,6 +27,7 @@ build_uboot(){
 }
 
 build_uboot pine64_plus sun50i-a64-pine64-plus
+build_uboot Sinovoip_BPI_M64 sun50i-a64-bananapi-m64
 build_uboot orangepi_prime sun50i-h5-orangepi-prime
 build_uboot orangepi_pc2 sun50i-h5-orangepi-pc2
 build_uboot nanopi_neo2 sun50i-h5-nanopi-neo2

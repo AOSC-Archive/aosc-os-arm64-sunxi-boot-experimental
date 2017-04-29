@@ -27,6 +27,7 @@ for i in \
 	sun50i-h5-orangepi-pc2 \
 	sun50i-h5-orangepi-prime \
 	sun50i-h5-nanopi-neo2 \
+	sun50i-a64-bananapi-m64 \
 	sun50i-a64-pine64 \
 	sun50i-a64-pine64-plus
 do
