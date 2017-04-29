@@ -5,9 +5,9 @@ else
 fi
 
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc7 --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-4.11-rc8 --depth=1
 cd linux
-git clone https://github.com/Icenowy/rtl8723bs -b 4.11-fix --depth=1
+git clone https://github.com/Icenowy/rtl8723bs -b upstream-final --depth=1
 cp ../../linux_config .config
 make ARCH=arm64 DTC_FLAGS=-@ -j$(nproc)
 mkdir -p ../../out/linux-kernel-sunxi64
