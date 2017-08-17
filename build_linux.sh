@@ -5,9 +5,8 @@ else
 fi
 
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-4.11-exp --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-4.13-rc5 --depth=1
 cd linux
-git clone https://github.com/Icenowy/rtl8723bs -b new_4.11_fix --depth=1
 cp ../../linux_config .config
 make ARCH=arm64 DTC_FLAGS=-@ -j$(nproc)
 mkdir -p ../../out/linux-kernel-sunxi64
@@ -16,10 +15,6 @@ tmpdir=$(mktemp -d)
 make ARCH=arm64 INSTALL_MOD_PATH="$tmpdir" modules_install
 EXTRA_KMOD_DIR="$(echo "$tmpdir"/lib/modules/*)/kernel/extra"
 mkdir -p "$EXTRA_KMOD_DIR"
-cd rtl8723bs
-make ARCH=arm64 KSRC=$PWD/..
-cp *.ko "$EXTRA_KMOD_DIR"
-cd ..
 depmod -b "$tmpdir" $(basename $(readlink -f $EXTRA_KMOD_DIR/../..))
 cp -r "$tmpdir"/lib/modules ../../out/linux-kernel-sunxi64/
 rm -rf "$tmpdir"
