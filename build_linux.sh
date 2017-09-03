@@ -5,7 +5,7 @@ else
 fi
 
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-4.13-rc6 --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-4.13.y --depth=1
 cd linux
 git clone https://github.com/AOSC-Dev/sunxi-mali400-r6p0-module
 git clone https://github.com/AOSC-Dev/sunxi-mali450-r7p0-module
