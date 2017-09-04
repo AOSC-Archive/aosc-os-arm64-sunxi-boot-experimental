@@ -9,6 +9,7 @@ git clone https://github.com/Icenowy/linux -b sunxi64-4.13.y --depth=1
 cd linux
 git clone https://github.com/AOSC-Dev/sunxi-mali400-r6p0-module
 git clone https://github.com/AOSC-Dev/sunxi-mali450-r7p0-module
+git clone https://github.com/Icenowy/rtl8189ES_linux rtl8189fs -b rtl8189fs
 cp ../../linux_config .config
 make ARCH=arm64 DTC_FLAGS=-@ -j$(nproc)
 mkdir -p ../../out/linux-kernel-sunxi64
@@ -21,6 +22,13 @@ for i in sunxi-mali400-r6p0-module sunxi-mali450-r7p0-module
 do
 	pushd $i
 	ARCH=arm64 KDIR=$PWD/.. ./build.sh
+	cp *.ko "$EXTRA_KMOD_DIR"
+	popd
+done
+for i in rtl8189fs
+do
+	pushd $i
+	make ARCH=arm64 M=$PWD -C $PWD/..
 	cp *.ko "$EXTRA_KMOD_DIR"
 	popd
 done
