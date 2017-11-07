@@ -5,11 +5,10 @@ else
 fi
 
 pushd build
-git clone https://github.com/Icenowy/linux -b sunxi64-4.13.y --depth=1
+git clone https://github.com/Icenowy/linux -b sunxi64-2-4.13.y --depth=1
 cd linux
 git clone https://github.com/AOSC-Dev/sunxi-mali400-r6p0-module
-git clone https://github.com/AOSC-Dev/sunxi-mali450-r7p0-module
-git clone https://github.com/Icenowy/rtl8189ES_linux rtl8189fs -b rtl8189fs
+git clone https://github.com/jwrdegoede/rtl8189ES_linux rtl8189fs -b rtl8189fs
 cp ../../linux_config .config
 make ARCH=arm64 DTC_FLAGS=-@ -j$(nproc)
 mkdir -p ../../out/linux-kernel-sunxi64
@@ -18,7 +17,7 @@ tmpdir=$(mktemp -d)
 make ARCH=arm64 INSTALL_MOD_PATH="$tmpdir" modules_install
 EXTRA_KMOD_DIR="$(echo "$tmpdir"/lib/modules/*)/kernel/extra"
 mkdir -p "$EXTRA_KMOD_DIR"
-for i in sunxi-mali400-r6p0-module sunxi-mali450-r7p0-module
+for i in sunxi-mali400-r6p0-module
 do
 	pushd $i
 	ARCH=arm64 KDIR=$PWD/.. ./build.sh
@@ -41,7 +40,8 @@ for i in \
 	sun50i-h5-nanopi-neo2 \
 	sun50i-a64-bananapi-m64 \
 	sun50i-a64-pine64 \
-	sun50i-a64-pine64-plus
+	sun50i-a64-pine64-plus \
+	sun50i-a64-sopine-baseboard
 do
 	mkdir -p ../../out/dtb-$i
 	cp arch/arm64/boot/dts/allwinner/$i.dtb ../../out/dtb-$i/dtb.dtb
