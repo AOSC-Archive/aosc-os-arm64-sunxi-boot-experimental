@@ -8,7 +8,7 @@ build_uboot(){
 	pushd build
 	mkdir uboot-$1
 	cd uboot-$1
-	git clone https://github.com/u-boot/u-boot --depth=1
+	git clone https://github.com/u-boot/u-boot -b v2017.09 --depth=1
 	git clone https://github.com/apritzel/arm-trusted-firmware -b allwinner-stable --depth=1
 	pushd arm-trusted-firmware
 	make PLAT=sun50iw1p1
